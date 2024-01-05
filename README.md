@@ -11,6 +11,8 @@ To scrap genre data from the IGDB game website and insert it into gsheet run - `
 
 Endpoints at - https://api-docs.igdb.com/#endpoints
 
+Gsheet Link - https://docs.google.com/spreadsheets/d/1IMvAoJnfVJdBfdfCokS_PBYVM8mq1xbFtBephK2tUYc/edit?usp=sharing
+
 git handling - 
 
 https://chat.openai.com/share/93fe312e-6290-4d59-85b8-0d14e3032037
