@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vernal-maker-382315",
+  "private_key_id": "37af6c1e1384b50b1e1e87b5a16daaa895ad855c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCchJ4HMrv6drOJ\nTbohLHL1hG0Ta2n+/PTKBH0ccFVhenO9eq0HFqttn+mRlK/2Cji1c42RmC1CXifO\nMhgCIlcnqjXP9tfHMnnGzbln//YU0k/rpabQ77Fmr095sZBMeBTISGzJrt0pS1iI\nPZdgXV5VelO/f/O2/imIeeVs7jX/59rnWBpDBCcKc4tIaf1WdjSOmfwazf+Fw6V3\nrh0jyMW7kYmW616FXBWs90TWhkYdBVCwMj71NEs1qvUc2ONLcot1lQzU3GgvOY3M\nqnBLctHkebikS6boEas5jl77lO5EL+b2Tmw+Yx33M3EROxusYBBxhQMc1whstF2q\nz65zIaNLAgMBAAECggEAOh2Lx8Rww8j7VMoFiHfGn57yGTnS+5jVE4WjJsIXEcCz\n5PD9+hnSwTuVMDbzNvoIoGctc5f7hh8LzKYRAAncLqAmpvdSm2YEjWqpoxIJPyXw\nAuFZFU9KoYQKkHb7y0jy/oLV0fUZrVGKp9umr2M7uaVYH0zVI2cv6LrKEy5H4qKR\nmMeQoYj/2a/9zrp66MRS+m+nGIq7bFhqXFFl4p/J/fLdTz516I0dcdRUobSDuda9\n0TpIvcJK6qHAlCsYXI+0PuAYDBpXh4PEuaynrADciIa6cIR7nVKZGn6mwZ2wZi8D\nBtea4ALFe7SWJ7jYpddJCgUOR+bvg66oP8Fyf5RzcQKBgQDMUX+wyVrWMgkLij9N\nIILPh9MGbgjR+Pucb14uyFceZ8i/9qAQiytIF3D8p8mxxoB4bIuRAmGl0NSMC0jU\nvnHmd5RfeeGSM0++fCEqZrIQCy/9nu5f8tyMR6bO1clIGceX48bTYFHXn5k9fvK2\nU5iXrBdU5FH9j+1PZ7QT65NTDQKBgQDEG9cXuKO5uaKpVRZd80KoLgg7dtheBBU0\nWOEA2gGQdYDWOnB9+ys00enHGT4Bc0wk6kp68iN/Z/HK3aNd0GUFNFNgs+SZlAXK\ni1R3252ijAOSQJrRvj9XkxPXF+zUb2JtA7tGj5xxLPk4zqiW2RBeLuyy8d+2UKq8\nY55eJ0kZtwKBgCZUt9brv53lnyrKEdwfWEsk2SMgq4jw5AtSHWI7dZSftdrFovvX\nkBQjSbAsrjsq2Vk+S+S1hKo+BlILn+tBm064al6LGBV8iN5cnUA+KfO2lZdIJMJd\nZqDupE2zb+KV64sEUX3AWTpRl8cgtNodzsfNokbr2rHuOYAnHXKLRIVVAoGALRXl\ndnupkHpgLiP0t3bEvVuP4vPovHydz2IboJF+SJLrItVepWgIP+V+pJpmCflS6S3A\nH9HpXVItYaFg/KF7iB3GiXXyOWixiCZOLhwcepFMBOS7czsU3vJeXlYOyawt6bgw\n5wD/S3m2dlv0oHGY9L4/Bsja0NRs3FDeyPCpOrMCgYAj6kpWesJM48RPjk6ovbuA\n1Bp/tj7/g+99p222dxOys1UVnPLowcEihxuPqNXgoeWUMEQSMJRX6Z7zqSTNwkFZ\n2vlA88A0ZompeR1ty252ffIe46VtBgamoDpdYU1BWD2UfRRZLq7xoE9ZUXSoRgB/\nRAwbsgSc04rPHEPC+Y5GLw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gamebotdata@vernal-maker-382315.iam.gserviceaccount.com",
+  "client_id": "105158632129690623523",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gamebotdata%40vernal-maker-382315.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
