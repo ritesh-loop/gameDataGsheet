@@ -32,7 +32,7 @@ def gameID_binary_search(id_list,targetID):
     # If the target is not found
     return -1
 
-# TO reload this app use - uvicorn main:app --reload   --main - name of the file, app - name of this app
+# TO reload this app use - uvicorn mains:appName --reload   --main - name of the file, app - name of this app
 appName = FastAPI()
 
 @appName.get("/")
