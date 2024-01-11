@@ -44,25 +44,28 @@ async def root():
 async def read_item(game_id: int = 0):
     sheet_to_be_written, connection_status= connecting_to_worksheet()
     # Fetch data from the worksheet and format it to return as JSON
-    first_row_data = sheet_to_be_written.row_values(1)
+    column_headers = sheet_to_be_written.row_values(1)
     all_id_from_gsheet = sheet_to_be_written.col_values(1)
     all_id_from_gsheet=list(map(int, all_id_from_gsheet[1:]))
     
     response_data = {
         "connection_status": connection_status,
-        "sheet_headers": first_row_data,
         "totalGameDataPresent": len(all_id_from_gsheet),
-        "gameID_gsheet_status": ""
+        "gameID_gsheet_status": "",
+        "row_data":{}
     }
     
     if game_id == 0:
         response_data['gameID_gsheet_status'] = "Enter game ID between 1 and 215711"
         return response_data
     else:
-        # --- now making a binary search algorithm to find if the ID is present in all_id_from_gsheet
         id_status = gameID_binary_search(all_id_from_gsheet,game_id)
         if id_status != -1:
             response_data['gameID_gsheet_status'] = f"Element found at gsheet row position {id_status+1}"
+            # Get all values in the specified row
+            row_values = sheet_to_be_written.row_values(id_status+1)
+            row_data = dict(zip(column_headers, row_values))
+            response_data['row_data']=row_data
         else:
             response_data['gameID_gsheet_status'] = "Element not found in the list"
         return response_data
