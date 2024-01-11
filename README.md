@@ -16,10 +16,15 @@ Gsheet Link - https://docs.google.com/spreadsheets/d/1IMvAoJnfVJdBfdfCokS_PBYVM8
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Created an API under the folder gameDataAPI, this API is exposed with the collected data from above.
+
 API route - ```http://127.0.0.1:8000/game-data/?game_id=```
+
 ```game_id``` - a query parameter, that takes the unique ID for every game in the IGDB database.
+
 The response of this API returns - the game data present in the sheet.
+
 Run the mains.py app > ```uvicorn mains:appName --reload```
+
 Follow the link for the localhost and ```http://127.0.0.1:8000/docs``` to test the APIs with swagger UI
 
 git handling - 
