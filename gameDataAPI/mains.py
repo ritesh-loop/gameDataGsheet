@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from enum import Enum
 import gspread
-from ratelimit import limits, sleep_and_retry
-
 
 
 def connecting_to_worksheet():
@@ -42,10 +40,10 @@ async def root():
 
 @appName.get("/game-data/")
 async def read_item(game_id: int = 0):
-    sheet_to_be_written, connection_status= connecting_to_worksheet()
+    sheet_to_be_read, connection_status= connecting_to_worksheet()
     # Fetch data from the worksheet and format it to return as JSON
-    column_headers = sheet_to_be_written.row_values(1)
-    all_id_from_gsheet = sheet_to_be_written.col_values(1)
+    column_headers = sheet_to_be_read.row_values(1)
+    all_id_from_gsheet = sheet_to_be_read.col_values(1)
     all_id_from_gsheet=list(map(int, all_id_from_gsheet[1:]))
     
     response_data = {
@@ -60,10 +58,21 @@ async def read_item(game_id: int = 0):
         return response_data
     else:
         id_status = gameID_binary_search(all_id_from_gsheet,game_id)
+        # id_status returns -1 if id is not present in the gsheet
         if id_status != -1:
-            response_data['gameID_gsheet_status'] = f"Element found at gsheet row position {id_status+1}"
+            try:
+                # Find the index of the specified unique ID in the column
+                index = all_id_from_gsheet.index(game_id)
+
+                # Return the row number (1-based index)
+                print(index + 1)
+            except ValueError:
+                # ID not found
+                print(ValueError)
+
+            response_data['gameID_gsheet_status'] = f"Element found at gsheet row position {index+2}"
             # Get all values in the specified row
-            row_values = sheet_to_be_written.row_values(id_status+1)
+            row_values = sheet_to_be_read.row_values(index+2)
             row_data = dict(zip(column_headers, row_values))
             response_data['row_data']=row_data
         else:
