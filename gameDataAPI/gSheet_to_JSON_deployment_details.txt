@@ -1,0 +1,13 @@
+gsheet script link -
+https://script.google.com/u/0/home/projects/15TVtfHjCMdPfyYG0YQ144SYxUW-bIWpHLQcPb5KyJwFJtIq8jslkyyYP/edit
+
+DEPLAYMENT DETAILS
+
+Deployment successfully updated.
+Version 2 on Jan 13, 2024, 3:08 PM
+Deployment ID = AKfycbxv5aJgGXKQgVcpBFzrXdFsSJSyNO8f72gyU7Wbk0W3piHie3IZlXO41eW5McsNRxU
+
+Web app
+URL = https://script.google.com/a/macros/verloop.io/s/AKfycbxv5aJgGXKQgVcpBFzrXdFsSJSyNO8f72gyU7Wbk0W3piHie3IZlXO41eW5McsNRxU/exec
+
+App Script - https://script.google.com/u/0/home/projects/15TVtfHjCMdPfyYG0YQ144SYxUW-bIWpHLQcPb5KyJwFJtIq8jslkyyYP/edit
