@@ -17,7 +17,7 @@ all_api_responses_list = []
 def make_api_request(n: int):
     global effective_writes_this_call
     try:
-        response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'usyz3spa2yg21kg7c7sg0i4dk7l5gb', 'Authorization': 'Bearer xuwv0l7paxvokcg2nbmoy744353y4g'},'data': 'fields name,rating,rating_count,similar_games,storyline,summary,tags,themes,url,websites; where id>={0} & id < {1}; sort id asc; limit 500;'.format(n,n+500)})
+        response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'usyz3spa2yg21kg7c7sg0i4dk7l5gb', 'Authorization': 'Bearer hgf12ct7can0dsk4r51qdfu21kz9ns'},'data': 'fields name,rating,rating_count,similar_games,storyline,summary,tags,themes,url,websites; where id>={0} & id < {1}; sort id asc; limit 500;'.format(n,n+500)})
         response.raise_for_status()
         response = response.json()
         final_list = []
