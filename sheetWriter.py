@@ -1,18 +1,22 @@
-import gspread
-from gameGenrePredictor import game_data_for_id
-from ratelimit import limits, sleep_and_retry
 import os
-import csv
 import re
+
+import gspread
+from ratelimit import limits, sleep_and_retry
+from dotenv import load_dotenv
+
+from gameGenrePredictor import game_data_for_id
+
+load_dotenv()
 
 
 def connecting_to_worksheet():
-    Sheet_credential = gspread.service_account("/Users/riteshmukhopadhyay/Documents/Data Analysis/NLP/gameGenrePredictor/vernal-maker-382315-37af6c1e1384.json")
+    Sheet_credential = gspread.service_account(os.environ["GSHEET_CREDENTIALS"])
     # Open Spreadsheet by URL
     #spreadsheet = Sheet_credential.open_by_url('https://docs.google.com/spreadsheets/d/1IMvAoJnfVJdBfdfCokS_PBYVM8mq1xbFtBephK2tUYc/edit#gid=0')
     
     # Open Spreadsheet by key
-    spreadsheet = Sheet_credential.open_by_key('1IMvAoJnfVJdBfdfCokS_PBYVM8mq1xbFtBephK2tUYc')
+    spreadsheet = Sheet_credential.open_by_key(os.environ["SPREADSHEET_CREDENTIALS"])
 
     # to print worksheet name using sheet id
     worksheet = spreadsheet.get_worksheet(0)
@@ -40,13 +44,13 @@ def receiveDataFromIgdbAPI(data_received,total_length,worksheet):
 # Appending the data in gsheet
 def genreAppenderInGsheet(genre_each_game="NA",GenreSheet=""):
     genres_together = ""
-    append_column_name = 'genre'
-    genre_column_index = GenreSheet.find(append_column_name).col  # Find the column number by column name
+    #append_column_name = 'genre'
+    #genre_column_index = GenreSheet.find(append_column_name).col  # Find the column number by column name
+    genre_column_index = 5
     # Find the first empty cell in the 'genre' column
     genre_column = GenreSheet.col_values(genre_column_index)
-    #empty_cell_index = genre_column.index('') + 1 if '' in genre_column else len(genre_column) + 1
     empty_cell_index = next((i for i, val in enumerate(genre_column) if val == ''), len(genre_column) + 1)
-    print(f"First Empty Cell present in Genre col - {empty_cell_index}")
+    print(f"First Empty Cell present in Genre col - E {empty_cell_index}")
     # Update the 'genre' column at the empty cell
     for genre in genre_each_game:
         genres_together = genres_together + genre + ","
@@ -56,7 +60,7 @@ def genreAppenderInGsheet(genre_each_game="NA",GenreSheet=""):
         print("All characters in the string are '-,'")
         genres_together = "-"
         GenreSheet.update_cell(empty_cell_index, genre_column_index, genres_together)
-        print(" -- No Genre Appended 📝 {}".format(genres_together))
+        print(" -- No Genre Appended 👎 {}".format(genres_together))
     else:
         GenreSheet.update_cell(empty_cell_index, genre_column_index, genres_together.replace("-", "").strip(","))
         print(" -- Genre Appended 📝 {}".format(genres_together.replace("-", "").strip(",")))

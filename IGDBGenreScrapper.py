@@ -33,7 +33,7 @@ def Genre_extractor(Igdb_web_urls,worksheet):
         position = Igdb_web_urls.index(last_updated_genre_cell_value_url) # Get the index of 'url'
         print(f"{last_updated_genre_cell_value_url} found at position: {position+2} in gsheet")
     else:
-        print(f"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!{last_updated_genre_cell_value_url} not found in the listiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
+        print(f"{'!'*50}{last_updated_genre_cell_value_url} not found in the list")
     next_url_in_gsheet = position+1
     for link in Igdb_web_urls[next_url_in_gsheet:]:
         result = []

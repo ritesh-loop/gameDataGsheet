@@ -31,3 +31,5 @@ git status
 git push
 https://chat.openai.com/share/93fe312e-6290-4d59-85b8-0d14e3032037
 https://gist.github.com/mindplace/b4b094157d7a3be6afd2c96370d39fad
+
+after installing playwright from requirements.txt you need to run this command to install the chromium browser `python3 -m playwright install chromium`

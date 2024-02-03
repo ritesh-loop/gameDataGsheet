@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/riteshmukhopadhyay/Documents/Data Analysis/NLP/gameGenrePredictor/gameDataAPI/IGDBgameAPIvenv/bin/python3" "$0" "$@"
-' '''
+#!/Users/riteshmukhopadhyay/Documents/gameDetailsGsheet/gameGenrePredictor/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

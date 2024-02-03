@@ -1,35 +1,35 @@
-import requests
-import json
-import datetime
-from requests import post, get
-from ratelimit import limits, sleep_and_retry
-from playwright.sync_api import Playwright, sync_playwright, expect
-from bs4 import BeautifulSoup
+import os
 import time
 
+from requests import post
+from ratelimit import limits, sleep_and_retry
 
-# https://chat.openai.com/share/ddaaf89a-d7ea-4d68-bde4-fbabd58ed512
+from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
+
+
 effective_writes_this_call = 0
 all_api_responses_list = []
+
+
 # Define the rate limit: 100 requests per minute (60 seconds)
 @sleep_and_retry
 @limits(calls=4, period=1.2)
 def make_api_request(n: int):
     global effective_writes_this_call
     try:
-        response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': 'usyz3spa2yg21kg7c7sg0i4dk7l5gb', 'Authorization': 'Bearer hgf12ct7can0dsk4r51qdfu21kz9ns'},'data': 'fields name,rating,rating_count,similar_games,storyline,summary,tags,themes,url,websites; where id>={0} & id < {1}; sort id asc; limit 500;'.format(n,n+500)})
+        response = post('https://api.igdb.com/v4/games', **{'headers': {'Client-ID': os.environ["IGDB_CLIENT_ID"], 'Authorization': os.environ["IGDB_AUTHORIZATION_TOKEN"]},'data': 'fields name,rating,rating_count,similar_games,storyline,summary,tags,themes,url,websites; where id>={0} & id < {1}; sort id asc; limit 500;'.format(n,n+500)})
         response.raise_for_status()
         response = response.json()
         final_list = []
         
         for value in range(len(response)):
-            #print("value no --- {0} whose ID ---- {1}".format(value+1,response[value].get("id", "-")))
             msg = [response[value].get("id", "-"),response[value].get("name", "-"),response[value].get("storyline", "-"),response[value].get("summary", "-"),response[value].get("url", "-"),]
             if msg[2]=="-" and msg[3]=="-":
                 continue
             else:
                 middle_concatenated = msg[2] + msg[3]
-                unwanted_chars = "-"  # Characters you want to remove
+                unwanted_chars = "-"  # Characters needed to be removed
                 middle_concatenated = middle_concatenated.strip(unwanted_chars)
                 msg[2] = middle_concatenated
                 msg.pop(3)
