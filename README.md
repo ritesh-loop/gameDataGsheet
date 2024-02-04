@@ -45,7 +45,7 @@ Endpoints at - https://api-docs.igdb.com/#endpoints
       python3 -m playwright install chromium
       ```
       
-7. After the dependencies are resolved if any. You can run the script by running the following command, make sure you are present at the current directory of the `IGDBGenreScrapper.py` script:
+7. After the dependencies are resolved if any. You can run the genre collector script by running the following command, make sure you are present at the current directory of the `IGDBGenreScrapper.py` script:
    
    ```commandline
    python3 IGDBGenreScrapper.py
